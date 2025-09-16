@@ -59,4 +59,37 @@ export class UserService {
             return error(500, 'Gagal mendapatkan data, silakan coba lagi');
         }
     }
+
+    async updateUser(id: string, user: Partial<User>): Promise<ApiResponse<User>> {
+        try {
+            const updated = await this.userRepository.update(id, user);
+            if (!updated) {
+                return error(404, 'User not found.');
+            }
+
+            return success(updated);
+        } catch (err) {
+            console.error(err);
+            return error(500, 'Gagal merubah data, silakan coba lagi');
+        }
+    }
+
+    async deleteUser(id: string): Promise<ApiResponse<User>> {
+        try {
+            const user = await this.userRepository.findById(id);
+            if (!user) {
+                return error(404, 'User not found.');
+            }
+
+            const deleted = await this.userRepository.delete(id);
+            if (!deleted) {
+                return error(400, 'User gagal dihapus.');
+            }
+
+            return success(user);
+        } catch (err) {
+            console.error(err);
+            return error(500, 'Gagal menghapus data, silakan coba lagi');
+        }
+    }
 }

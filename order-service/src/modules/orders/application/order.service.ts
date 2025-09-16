@@ -68,5 +68,38 @@ export class OrderService {
             return error(500, 'Gagal mendapatkan data, silakan coba lagi.');
         }
     }
+
+    async updateOrder(id: string, order: Partial<Order>): Promise<ApiResponse<Order>> {
+        try {
+            const updated = await this.orderRepository.update(id, order);
+            if (!updated) {
+                return error(404, 'Order not found.');
+            }
+
+            return success(updated);
+        } catch (err) {
+            console.error(err);
+            return error(500, 'Gagal merubah data, silakan coba lagi');
+        }
+    }
+
+    async deleteOrder(id: string): Promise<ApiResponse<Order>> {
+        try {
+            const order = await this.orderRepository.findById(id);
+            if (!order) {
+                return error(404, 'Order not found.');
+            }
+
+            const deleted = await this.orderRepository.delete(id);
+            if (!deleted) {
+                return error(400, 'Order gagal dihapus.');
+            }
+
+            return success(order);
+        } catch (err) {
+            console.error(err);
+            return error(500, 'Gagal menghapus data, silakan coba lagi');
+        }
+    }
 }
 

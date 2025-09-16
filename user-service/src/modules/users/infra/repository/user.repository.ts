@@ -32,4 +32,19 @@ export class UserRepository implements IUserRepository{
         const entities = await this.repo.find();
         return entities.map(e => new User(e.name, e.email, e.id, e.createdAt));
     }
+
+    async update(id: string, user: Partial<User>): Promise<User | null> {
+        await this.repo.update(id, user);
+        const updated = await this.repo.findOne({ where: { id } });
+        if (!updated) {
+            return null;
+        }
+        
+        return new User(updated.name, updated.email, updated.id, updated.createdAt);
+    }
+
+    async delete(id: string): Promise<boolean>{
+        const result = await this.repo.delete(id);
+        return result.affected !== 0;
+    }
 }

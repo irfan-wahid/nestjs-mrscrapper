@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "2aec1dd7-22b6-44c2-9520-a2d1d057f526",
+		"_postman_id": "c569d4ac-fa28-4976-a218-9b45184e7e6a",
 		"name": "Test MrScraper",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32269868",
-		"_collection_link": "https://www.postman.com/supply-saganist-36449398/test-mrscrapper/collection/sfzjjsz/test-mrscraper?action=share&source=collection_link&creator=32269868"
+		"_exporter_id": "32269868"
 	},
 	"item": [
 		{
@@ -61,7 +60,72 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"domain": "",
+									"path": ""
+								}
+							],
+							"body": "{\r\n    \"id\": \"1757990375610\",\r\n    \"name\": \"test\",\r\n    \"email\": \"test@gmail.com\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test123@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/a22a4511-1c35-419e-8fc1-e9f4db8a4c02",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"a22a4511-1c35-419e-8fc1-e9f4db8a4c02"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"test\",\r\n    \"email\": \"test@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
 							"header": [],
 							"cookie": [
 								{
@@ -108,15 +172,6 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "localhost:3000/users",
 									"host": [
@@ -128,7 +183,7 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [],
 							"cookie": [
 								{
@@ -176,15 +231,6 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "localhost:3000/users/1757990375611",
 									"host": [
@@ -197,7 +243,7 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [],
 							"cookie": [
 								{
@@ -266,7 +312,7 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [],
 							"cookie": [
 								{
@@ -313,15 +359,6 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "localhost:3001/orders",
 									"host": [
@@ -333,7 +370,7 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [],
 							"cookie": [
 								{
@@ -381,15 +418,6 @@
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "localhost:3001/users/123",
 									"host": [
@@ -402,7 +430,7 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": "",
+							"_postman_previewlanguage": "Text",
 							"header": [],
 							"cookie": [
 								{

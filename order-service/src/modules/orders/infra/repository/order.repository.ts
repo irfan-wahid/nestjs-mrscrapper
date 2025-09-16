@@ -40,4 +40,28 @@ export class OrderRepository implements IOrderRepository{
 
         return new Order(entity.userId, entity.product, entity.price, entity.status, entity.id, entity.createdAt)
     }
+
+    async findById(id: string): Promise<Order | null> {
+        const entity = await this.repo.findOne({where: { id }})
+        if(!entity){
+            return null
+        }
+
+        return new Order(entity.userId, entity.product, entity.price, entity.status, entity.id, entity.createdAt)
+    }
+
+    async update(id: string, order: Partial<Order>): Promise<Order | null> {
+        await this.repo.update(id, order);
+        const updated = await this.repo.findOne({ where: { id } });
+        if (!updated) {
+            return null;
+        }
+        
+        return new Order(updated.userId, updated.product, updated.price, updated.status, updated.id, updated.createdAt);
+    }
+
+    async delete(id: string): Promise<boolean>{
+        const result = await this.repo.delete(id);
+        return result.affected !== 0;
+    }
 }
