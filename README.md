@@ -36,6 +36,14 @@ Infrastructure Layer: implementasi teknis (database, messaging, dll).
 
 Setiap service (user-service & order-service) berdiri sendiri tetapi bisa saling berkomunikasi jika dibutuhkan.
 
-## 2. Example API Request
-Untuk contoh API Request bisa dilihat di link postman berikut:
-https://web.postman.co/c22e4814-2a96-4fab-938f-542d1fd95e8d
+## 3. Example API Requests
+
+Untuk mencoba API tersedia dua opsi:
+
+1. Postman Online Collection
+   Anda dapat langsung membuka koleksi Postman di link berikut:  
+   👉 [Postman Collection](https://web.postman.co/c22e4814-2a96-4fab-938f-542d1fd95e8d)
+
+2. Import File Koleksi Postman
+   Import file bernama **`Test MrScraper.postman_collection.json`** ke dalam Postman  
+   untuk melihat dokumentasi dan mencoba endpoint secara langsung.
