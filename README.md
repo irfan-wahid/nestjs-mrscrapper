@@ -6,7 +6,7 @@ Pastikan **Docker** dan **Docker Compose** sudah terinstall.
 Kemudian jalankan:
 
 ```bash
-docker-compose up -f docker-compose.yaml up -d
+docker-compose -f docker-compose.yaml up -d
 ```
 
 Setelah itu, masuk ke folder user-service dan order-service (masing-masing service berada di folder terpisah).
