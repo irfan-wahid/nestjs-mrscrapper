@@ -3,6 +3,10 @@ import { OrderService } from "./order.service"
 import { KafkaConsumer } from "../infra/kafka/kafka.consumer";
 import { RedisService } from "../infra/redis/redis.service";
 import { Order } from "../domain/order.entity";
+import axios from "axios";
+
+jest.mock("axios");
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('OrderService', () => {
     let service: OrderService;
@@ -44,6 +48,14 @@ describe('OrderService', () => {
     });
 
     it('should create an order', async() => {
+        mockedAxios.get.mockResolvedValue({
+            data: { data: { id: "03a89d8b-c5e6-4d37-a474-35d8bdb34267" } },
+            status: 200,
+            statusText: "OK",
+            headers: {},
+            config: { url: "http://localhost:3000/users/03a89d8b-c5e6-4d37-a474-35d8bdb34267" },
+        });
+
         const result = await service.createOrder({ 
                 userId: "03a89d8b-c5e6-4d37-a474-35d8bdb34267",
                 product: "pensil",
@@ -64,6 +76,7 @@ describe('OrderService', () => {
         });
 
         expect(mockRepo.create).toHaveBeenCalled();
+        expect(mockedAxios.get).toHaveBeenCalled();
     })
 
     it('should return order by user id', async() => {

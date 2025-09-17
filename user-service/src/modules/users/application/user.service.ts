@@ -32,7 +32,7 @@ export class UserService {
             const cached = await this.redisService.get(`user:${id}`);
             if(cached){
                 console.log("hit cache")
-                return JSON.parse(cached);
+                return success(JSON.parse(cached));
             }
 
             const user = await this.userRepository.findById(id);

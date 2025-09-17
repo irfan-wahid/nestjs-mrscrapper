@@ -23,8 +23,8 @@ export class OrderRepository implements IOrderRepository{
             createdAt: order.createdAt,
         });
 
-  await this.repo.save(entity);
-  return entity;
+    await this.repo.save(entity);
+    return entity;
 }
 
     async findAll(): Promise<Order[]> {
